@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="OverlayRadioText" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="android:textAppearance">@style/TextAppearance.Material3.HeadlineLarge</item>
+    </style>
+</resources>
