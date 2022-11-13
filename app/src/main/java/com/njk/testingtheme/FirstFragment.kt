@@ -1,11 +1,14 @@
 package com.njk.testingtheme
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.njk.testingtheme.databinding.FragmentFirstBinding
 
 /**
@@ -13,6 +16,7 @@ import com.njk.testingtheme.databinding.FragmentFirstBinding
  */
 class FirstFragment : Fragment() {
 
+    lateinit var database: DatabaseReference
     private var _binding: FragmentFirstBinding? = null
 
     // This property is only valid between onCreateView and
@@ -32,8 +36,18 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        binding.apply {
+            send.setOnClickListener {
+//                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                val text = rawText.editableText.toString()
+                database = FirebaseDatabase.getInstance("https://busticketsystem-f2ca3-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Junk")
+                val user = User(text)
+                database.child("funny").setValue(user).addOnSuccessListener {
+                    rawText.text?.clear()
+                    Toast.makeText(requireContext(), "Yay done 🔥", Toast.LENGTH_SHORT).show()
+                }
+                Log.d("firebase", text)
+            }
         }
     }
 
