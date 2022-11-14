@@ -1,5 +1,6 @@
 package com.njk.testingtheme
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.njk.testingtheme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +33,14 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        // Request camera permissions
+        if (allPermissionsGranted()) {
+            // startCamera()
+            // TODO replace with navigation
+        } else {
+            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+        }
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -58,4 +70,37 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+    // [START get permission]
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<String>, grantResults:
+        IntArray) {
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                // startCamera()
+                // TODO: replace with navigation
+            } else {
+                Toast.makeText(this,
+                    "Permissions not granted by the user.",
+                    Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
+    }
+
+    companion object {
+        private const val TAG = "BARCODE"
+        private const val REQUEST_CODE_PERMISSIONS = 10
+        private val REQUIRED_PERMISSIONS =
+            mutableListOf (
+                android.Manifest.permission.CAMERA,
+                android.Manifest.permission.RECORD_AUDIO,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ).toTypedArray()
+    }
+    // [END get permission]
 }
