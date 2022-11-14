@@ -5,31 +5,71 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".FirstFragment">
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_field"
-        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
-        android:layout_width="@dimen/user_text"
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="16dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/raw_text"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_field_1"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="@dimen/user_text"
             android:layout_height="wrap_content"
-            />
+            android:hint="RFID">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/rfid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_field_2"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="@dimen/user_text"
+            android:layout_height="wrap_content"
+            android:hint="Balance"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_field_3"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="@dimen/user_text"
+            android:layout_height="wrap_content"
+            android:hint="Pending"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="48sp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

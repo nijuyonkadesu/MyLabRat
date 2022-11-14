@@ -48,4 +48,6 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="value">value</string>
+    <string name="married">married</string>
+    <string name="employeed">employeed</string>
 </resources>

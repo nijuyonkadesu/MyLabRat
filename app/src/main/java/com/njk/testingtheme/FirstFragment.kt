@@ -39,14 +39,26 @@ class FirstFragment : Fragment() {
         binding.apply {
             send.setOnClickListener {
 //                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-                val text = rawText.editableText.toString()
-                database = FirebaseDatabase.getInstance("https://busticketsystem-f2ca3-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Junk")
-                val user = User(text)
-                database.child("funny").setValue(user).addOnSuccessListener {
-                    rawText.text?.clear()
+                database = FirebaseDatabase.getInstance("https://busticketsystem-f2ca3-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
+
+
+                val accNo = (1..100).random()
+                val user = User(
+                    rfid.text?.toString()?.toInt() ?: 0,
+                    balance.text?.toString()?.toInt() ?: 0,
+                    pending.text?.toString()?.toInt() ?: 0,
+                    ticketStatus = TicketStatus.VALID
+                )
+                database.child("$accNo").setValue(user).addOnSuccessListener {
+                    rfid.text?.clear()
+                    balance.text?.clear()
+                    pending.text?.clear()
+
                     Toast.makeText(requireContext(), "Yay done 🔥", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(requireContext(), "Failed 😔", Toast.LENGTH_SHORT).show()
                 }
-                Log.d("firebase", text)
+                Log.d("firebase", user.ticketStatus.toString())
             }
         }
     }
