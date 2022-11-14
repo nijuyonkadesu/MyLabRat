@@ -18,7 +18,6 @@ import java.util.concurrent.Executors
 // emit values - temporary
 typealias BarcodeListener = (code: String) -> Unit
 const val TAG = "QR"
-lateinit var binding: FragmentBarcodeBinding
 
 class BarcodeScanningActivity: AppCompatActivity() {
 
@@ -27,6 +26,7 @@ class BarcodeScanningActivity: AppCompatActivity() {
     private lateinit var cameraExecutor: ExecutorService
 
     // Inflate layout
+    private lateinit var binding: FragmentBarcodeBinding
 //    private lateinit var binding: FragmentBarcodeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,9 +73,9 @@ class BarcodeScanningActivity: AppCompatActivity() {
                     .setImageQueueDepth(1)
                     .build()
                     .also {
-                        it.setAnalyzer(cameraExecutor, BarcodeAnalyzer { code ->
+                        it.setAnalyzer(cameraExecutor, BarcodeAnalyzer ({ code ->
                             Log.d(TAG, "QR: $code")
-                        })
+                        }, binding))
                     }
 
                 // Bind use cases to camera
@@ -91,7 +91,7 @@ class BarcodeScanningActivity: AppCompatActivity() {
 }
 
 // Trying to get Barcode Scanner
-private class BarcodeAnalyzer(private val listener: BarcodeListener) : ImageAnalysis.Analyzer {
+private class BarcodeAnalyzer(private val listener: BarcodeListener, val binding: FragmentBarcodeBinding) : ImageAnalysis.Analyzer {
 
     @androidx.annotation.OptIn(androidx.camera.core.ExperimentalGetImage::class)
     override fun analyze(imageProxy: ImageProxy) {
