@@ -50,4 +50,5 @@
     <string name="value">value</string>
     <string name="married">married</string>
     <string name="employeed">employeed</string>
+    <string name="start_capture">Snap!</string>
 </resources>
