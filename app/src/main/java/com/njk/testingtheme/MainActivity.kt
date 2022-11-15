@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation
 import com.njk.testingtheme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -53,6 +54,9 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.ticket -> {
+                    val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+                    navController.navigate(action)
+
                     Toast.makeText(this, "ticket click detected", Toast.LENGTH_SHORT).show()
                     true
                 }
@@ -116,3 +120,4 @@ class MainActivity : AppCompatActivity() {
     }
     // [END get permission]
 }
+// TODO: Navigation is too broken, fix it properly
