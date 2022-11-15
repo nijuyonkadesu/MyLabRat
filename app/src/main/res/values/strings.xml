@@ -51,4 +51,7 @@
     <string name="married">married</string>
     <string name="employeed">employeed</string>
     <string name="start_capture">Snap!</string>
+    <string name="rfid_scan_nav">RFID</string>
+    <string name="home_nav">Home</string>
+    <string name="ticket_nav">Ticket</string>
 </resources>

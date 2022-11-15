@@ -41,11 +41,23 @@ class MainActivity : AppCompatActivity() {
         } else {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
+        binding.bottomNavigationView.selectedItemId = R.id.home
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.qr -> {
+                    Toast.makeText(this, "rfid click detected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.home -> {
+                    Toast.makeText(this, "home click detected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.ticket -> {
+                    Toast.makeText(this, "ticket click detected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 
