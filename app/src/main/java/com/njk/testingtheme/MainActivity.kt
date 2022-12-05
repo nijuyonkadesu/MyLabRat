@@ -1,5 +1,6 @@
 package com.njk.testingtheme
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -42,26 +43,33 @@ class MainActivity : AppCompatActivity() {
         } else {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
-        binding.bottomNavigationView.selectedItemId = R.id.home
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.qr -> {
-                    Toast.makeText(this, "rfid click detected", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.home -> {
-                    Toast.makeText(this, "home click detected", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.ticket -> {
-                    val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
-                    navController.navigate(action)
+        binding.apply {
+            bottomNavigationView.selectedItemId = R.id.home
+            bottomNavigationView.setOnItemSelectedListener {
+                when(it.itemId){
+                    R.id.qr -> {
+//                        FirstFragmentDirections.actionFirstFragmentToBarcodeScanningActivity()
+                        val barcodeIntent = Intent(this@MainActivity, BarcodeScanningActivity::class.java)
+//                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(barcodeIntent)
+                        Toast.makeText(this@MainActivity, "rfid click detected", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.home -> {
+                        Toast.makeText(this@MainActivity, "home click detected", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.ticket -> {
+                        val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+                        navController.navigate(action)
 
-                    Toast.makeText(this, "ticket click detected", Toast.LENGTH_SHORT).show()
-                    true
+                        Toast.makeText(this@MainActivity, "ticket click detected", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
                 }
-                else -> false
             }
+            bottomNavigationView.setOnItemReselectedListener{  }
         }
     }
 

@@ -60,6 +60,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     implementation platform('com.google.firebase:firebase-bom:31.0.3')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    // Firebase Cloud Messaging
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
+
+    // Coroutines PlayServices - to load data from firebase
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
     // Barcode Scan ML kit
     implementation 'com.google.mlkit:camera:16.0.0-beta3'

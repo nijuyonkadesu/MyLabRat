@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_barcodeScanningActivity"
+            app:destination="@id/barcodeScanningActivity" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -25,4 +28,8 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <activity
+        android:id="@+id/barcodeScanningActivity"
+        android:name="com.njk.testingtheme.BarcodeScanningActivity"
+        android:label="BarcodeScanningActivity" />
 </navigation>
