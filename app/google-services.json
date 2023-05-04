@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "989173754423",
+    "firebase_url": "https://busticketsystem-f2ca3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "busticketsystem-f2ca3",
+    "storage_bucket": "busticketsystem-f2ca3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989173754423:android:fc321a6b9b4bd580e62db2",
+        "android_client_info": {
+          "package_name": "com.njk.moveit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989173754423-89m8vutfgn107vg7si7opj1mdk3ijdip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpY-ilOQtLoljC55i9a0GxAYGNrZQhUwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989173754423-89m8vutfgn107vg7si7opj1mdk3ijdip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989173754423:android:24f8e24fcb673b5be62db2",
+        "android_client_info": {
+          "package_name": "com.njk.testingtheme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989173754423-89m8vutfgn107vg7si7opj1mdk3ijdip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpY-ilOQtLoljC55i9a0GxAYGNrZQhUwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989173754423-89m8vutfgn107vg7si7opj1mdk3ijdip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

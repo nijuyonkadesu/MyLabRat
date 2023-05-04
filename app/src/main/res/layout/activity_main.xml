@@ -21,17 +21,4 @@
 
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_view"
-        app:itemRippleColor="?attr/colorPrimaryVariant"
-        app:labelVisibilityMode="selected"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/menu_bottom_navigation"
-
-        android:layout_gravity="bottom"/>
-
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
