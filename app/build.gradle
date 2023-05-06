@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.gms.google-services'
     id 'androidx.navigation.safeargs'
 }
 
@@ -44,9 +43,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    // See and remove later if not needed
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -56,30 +52,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     // see classpath in build.gradle (project)
 
-    // Firebase
-    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
-    implementation platform('com.google.firebase:firebase-bom:31.0.3')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    // Firebase Cloud Messaging
-    implementation 'com.google.firebase:firebase-messaging:23.1.0'
-
     // Coroutines PlayServices - to load data from firebase
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
-
-    // Barcode Scan ML kit
-    implementation 'com.google.mlkit:camera:16.0.0-beta3'
-    implementation 'com.google.mlkit:barcode-scanning:17.0.2'
-
-    // CameraX
-    def camerax_version = "1.1.0-beta01"
-    implementation "androidx.camera:camera-core:${camerax_version}"
-    implementation "androidx.camera:camera-camera2:${camerax_version}"
-    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
-    implementation "androidx.camera:camera-video:${camerax_version}"
-
-    implementation "androidx.camera:camera-view:${camerax_version}"
-    implementation "androidx.camera:camera-extensions:${camerax_version}"
 
 
 }
