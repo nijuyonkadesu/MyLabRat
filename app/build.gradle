@@ -1,7 +1,8 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'androidx.navigation.safeargs'
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin.android
+    // Unable to use libs.safe.args.. dunno why...
+    id "androidx.navigation.safeargs"
 }
 
 android {
@@ -38,22 +39,18 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // androidx libs, layouts, material design
+    implementation libs.bundles.androidx
+    implementation libs.android.material
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    // Testing
+    testImplementation libs.junit
+    androidTestImplementation libs.bundles.testing
 
     // Navigation graph support
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     // see classpath in build.gradle (project)
+    implementation libs.bundles.nav
 
-    // Coroutines PlayServices - to load data from firebase
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
-
-
+    // Coroutines
+    implementation libs.coroutines
 }
